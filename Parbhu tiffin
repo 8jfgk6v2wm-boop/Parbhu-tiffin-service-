@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabhu Tifin Service | Lucknow</title>
+    
+    <!-- FontAwesome for Icons (WhatsApp, Stars) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #fcfcfc;
+            color: #333;
+        }
+        header {
+            background-color: #e65100;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Info Section */
+        .info-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: -20px;
+            text-align: center;
+            border: 2px solid #ffcc80;
+        }
+        .info-section h3 { color: #e65100; margin-bottom: 15px; }
+        .contact-highlight { font-size: 1.1rem; margin: 10px 0; font-weight: bold; }
+        .contact-highlight i { color: #25D366; font-size: 1.2rem; margin-right: 5px; }
+        
+        /* Pricing Section */
+        .pricing-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0 20px 0;
+            flex-wrap: wrap;
+        }
+        .price-card {
+            background: white;
+            padding: 25px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid #ff9800;
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+        }
+        .price-card h4 { font-size: 1.4rem; color: #333; margin-bottom: 10px; }
+        .price-card .price { font-size: 2.5rem; color: #e65100; font-weight: bold; margin-bottom: 5px; }
+        
+        /* Menu Section */
+        .menu-section { margin-top: 20px; }
+        .menu-section h2 { text-align: center; color: #e65100; font-size: 2rem; margin-bottom: 10px; }
+        .menu-note { text-align: center; font-style: italic; color: #555; margin-bottom: 30px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #ff9800; color: white; font-size: 1.1rem; }
+        tr:hover { background-color: #fff3e0; }
+        .day-col { font-weight: bold; color: #e65100; }
+
+        /* Order Section */
+        .order-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 40px;
+            text-align: center;
+            border-top: 5px solid #e65100;
+        }
+        .order-section h2 { color: #e65100; margin-bottom: 20px; }
+        .form-group { margin: 15px 0; font-size: 1.1rem; }
+        .form-group label { margin: 0 15px; cursor: pointer; }
+        .form-group input[type="number"] { padding: 8px; width: 80px; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; text-align: center; }
+        .summary-box {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 400px;
+            font-size: 1.3rem;
+            border: 1px dashed #ff9800;
+        }
+        .summary-box span { font-weight: bold; color: #e65100; font-size: 1.6rem; }
+        
+        /* Reviews Section */
+        .reviews-section { margin-top: 50px; }
+        .reviews-section h2 { text-align: center; color: #e65100; font-size: 2rem; margin-bottom: 20px; }
+        .review-cards { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .review-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+        }
+        .stars { color: #ff9800; margin-bottom: 10px; }
+        .review-text { font-style: italic; color: #555; margin-bottom: 10px; }
+        .reviewer-name { font-weight: bold; color: #333; }
+        
+        .add-review-form {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 40px auto 0;
+            border-top: 3px solid #ff9800;
+        }
+        .add-review-form h3 { text-align: center; color: #e65100; margin-bottom: 15px; }
+        .add-review-form input, .add-review-form textarea, .add-review-form select {
+            width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;
+        }
+        .add-review-form button {
+            width: 100%; background: #ff9800; color: white; padding: 10px; border: none; border-radius: 4px; font-size: 1.1rem; cursor: pointer;
+        }
+        .add-review-form button:hover { background: #e65100; }
+
+        /* Buttons & Floating Elements */
+        .cta-button {
+            display: inline-block;
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .cta-button:hover { background-color: #128C7E; }
+        .btn-orange { background-color: #e65100; }
+        .btn-orange:hover { background-color: #bf360c; }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+        .floating-whatsapp:hover { transform: scale(1.1); background-color: #128C7E; }
+
+        footer { background-color: #333; color: white; text-align: center; padding: 30px 20px; margin-top: 50px; }
+        
+        @media (max-width: 768px) {
+            th, td { padding: 10px; font-size: 0.9rem; }
+            header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Prabhu Tifin Service</h1>
+        <p>Delicious, hygienic, and affordable daily meals delivered right to your doorstep.</p>
+    </header>
+
+    <div class="container">
+        <!-- About & Contact Section -->
+        <div class="info-section">
+            <h3>📍 Serving the Student & Professional Community</h3>
+            <p>Conveniently located nearby <strong>Integral University, Lucknow</strong>. We bring the taste of home directly to your hostel, PG, or apartment!</p>
+            
+            <div class="contact-highlight">
+                <p><i class="fab fa-whatsapp"></i> Call/WhatsApp: 
+                    <a href="tel:+917905797863" style="color: #e65100; text-decoration:none;">7905697863</a> | 
+                    <a href="tel:+918299787909" style="color: #e65100; text-decoration:none;">8299787909</a>
+                </p>
+                <p>✉️ Email us: <a href="mailto:rt289095@gmail.com" style="color: #e65100; text-decoration:none;">rt289095@gmail.com</a></p>
+            </div>
+            
+            <a href="#place-order" class="cta-button btn-orange">View Menu & Order</a>
+        </div>
+
+        <!-- Pricing Section -->
+        <div class="pricing-section">
+            <div class="price-card">
+                <h4>Vegetarian Thali</h4>
+                <div class="price">₹70</div>
+                <p>per meal</p>
+            </div>
+            <div class="price-card">
+                <h4>Non-Vegetarian Thali</h4>
+                <div class="price">₹90</div>
+                <p>per meal</p>
+            </div>
+        </div>
+
+        <!-- Menu Section -->
+        <div class="menu-section">
+            <h2>Our Weekly Menu</h2>
+            <p class="menu-note"><strong>Daily Standard Inclusions:</strong> 4 Tawa Rotis, Jeera/Plain Rice, Fresh Green Salad, Pickle, and Roasted Papad.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Vegetarian Menu (₹70)</th>
+                        <th>Non-Vegetarian Menu (₹90)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="day-col">Monday</td><td>Dal Tadka, Aloo Gobi, Boondi Raita, Gulab Jamun</td><td>Homestyle Chicken Curry, Dal Tadka, Boondi Raita, Gulab Jamun</td></tr>
+                    <tr><td class="day-col">Tuesday</td><td>Paneer Butter Masala, Dry Mix Veg, Plain Curd</td><td>Anda Curry (Egg Curry), Dry Mix Veg, Plain Curd</td></tr>
+                    <tr><td class="day-col">Wednesday</td><td>Rajma Masala, Jeera Aloo, Mint Chutney</td><td>Butter Chicken, Jeera Aloo, Mint Chutney</td></tr>
+                    <tr><td class="day-col">Thursday</td><td>Punjabi Kadhi Pakora, Bhindi Masala, Rice Kheer</td><td>Chicken Tikka Masala, Bhindi Masala, Rice Kheer</td></tr>
+                    <tr><td class="day-col">Friday</td><td>Choley (Chana Masala), Baingan Bharta, Onion Raita</td><td>Mutton Keema Matar, Baingan Bharta, Onion Raita</td></tr>
+                    <tr><td class="day-col">Saturday</td><td>Matar Paneer, Aloo Methi, Rasgulla</td><td>Tariwala Mutton (Mutton Curry), Aloo Methi, Rasgulla</td></tr>
+                    <tr><td class="day-col">Sunday</td><td>Veg Dum Biryani, Mirchi Ka Salan, Paneer Tikka, Shahi Tukda</td><td>Chicken Dum Biryani, Mirchi Ka Salan, Chicken Kebab, Shahi Tukda</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Interactive Order & Summary Section -->
+        <div class="order-section" id="place-order">
+            <h2>Calculate & Place Your Order</h2>
+            
+            <div class="form-group">
+                <strong>Select Meal Type:</strong><br><br>
+                <label>
+                    <input type="radio" name="mealType" value="Vegetarian" onchange="calculateTotal()" checked> 
+                    Vegetarian (₹70)
+                </label>
+                <label>
+                    <input type="radio" name="mealType" value="Non-Vegetarian" onchange="calculateTotal()"> 
+                    Non-Vegetarian (₹90)
+                </label>
+            </div>
+
+            <div class="form-group">
+                <strong>Number of Meals/Days:</strong><br><br>
+                <input type="number" id="mealCount" value="1" min="1" oninput="calculateTotal()">
+            </div>
+
+            <div class="summary-box">
+                Order Summary: <br>
+                <span id="total-price">₹70</span>
+            </div>
+
+            <a href="https://wa.me/918299787909?text=Hi!%20I%20would%20like%20to%20order%20a%20Vegetarian%20Tiffin%20(1%20meal).%20Total:%20%E2%82%B970" 
+               id="whatsapp-btn" target="_blank" class="cta-button">
+               <i class="fab fa-whatsapp"></i> Order via WhatsApp
+            </a>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="reviews-section">
+            <h2>What Our Customers Say</h2>
+            <div class="review-cards">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The food feels exactly like ghar ka khana! Best tiffin near Integral University. The Non-veg on Sundays is amazing."</p>
+                    <p class="reviewer-name">- Rahul S. (Student)</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"Very affordable and hygienic. The delivery is always on time. Highly recommended for daily meals."</p>
+                    <p class="reviewer-name">- Sneha P. (Professional)</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Loved the Paneer Butter Masala! Great quantity and taste for just ₹70. Will order for the whole month."</p>
+                    <p class="reviewer-name">- Amit K.</p>
+                </div>
+            </div>
+
+            <!-- Submit a Review Form -->
+            <div class="add-review-form">
+                <h3>Leave a Review</h3>
+                <form id="reviewForm" onsubmit="submitReview(event)">
+                    <input type="text" placeholder="Your Name" required>
+                    <select required>
+                        <option value="" disabled selected>Give a Rating</option>
+                        <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+                        <option value="4">⭐⭐⭐⭐ - Very Good</option>
+                        <option value="3">⭐⭐⭐ - Good</option>
+                    </select>
+                    <textarea rows="3" placeholder="Write your review here..." required></textarea>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Order Button -->
+    <a href="https://wa.me/918299787909? text=Hi%20Prabhu%20Tifin%20Service!%20I%20would%20like%20to%20place%20an%20order." class="floating-whatsapp" target="_blank" title="Order on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <h2>Prabhu Tifin Service</h2>
+        <p>Location: Near Integral University, Kursi Road, Lucknow</p>
+        <p>Contact: +91 7905697863 | +91 8299787909</p>
+        <p>Email: rt289095@gmail.com</p>
+        <br>
+        <p>&copy; 2026 Prabhu Tifin Service. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Calculate Order Price
+        function calculateTotal() {
+            const mealTypeRadios = document.getElementsByName('mealType');
+            let selectedMeal = 'Vegetarian';
+            let pricePerMeal = 70;
+
+            for (const radio of mealTypeRadios) {
+                if (radio.checked) {
+                    selectedMeal = radio.value;
+                    pricePerMeal = selectedMeal === 'Vegetarian' ? 70 : 90;
+                    break;
+                }
+            }
+            const count = parseInt(document.getElementById('mealCount').value) || 1;
+            const total = pricePerMeal * count;
+
+            document.getElementById('total-price').innerText = `₹${total}`;
+
+            const message = `Hi Prabhu Tifin Service!%0A%0AI would like to place an order:%0A- Meal Type: ${selectedMeal}%0A- Quantity: ${count} meal(s)%0A- Total Amount: ₹${total}%0A%0APlease let me know the payment and delivery details.`;
+            document.getElementById('whatsapp-btn').href = `https://wa.me/8299787909?text=${message}`;
+        }
+
+        // Handle Review Submission (Demo)
+        function submitReview(event) {
+            event.preventDefault();
+            alert("Thank you for your review! It will be posted after approval from Prabhu Tifin Service.");
+            document.getElementById('reviewForm').reset();
+        }
+    </script>
